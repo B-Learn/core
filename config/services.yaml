@@ -1,7 +1,8 @@
 imports:
-    - { resource: '../src/Users/config/di/services.yml' }
+  - { resource: '../src/Common/config/di/services.yml' }
+  - { resource: '../src/Users/config/di/services.yml' }
 
 services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
+  _defaults:
+    autowire: true
+    autoconfigure: true

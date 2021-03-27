@@ -1,0 +1,2 @@
+users:
+  resource: '../../src/Users/config/routing/routes.yml'

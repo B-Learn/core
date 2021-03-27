@@ -1,2 +1,3 @@
-users:
-  resource: '../src/Users/config/routing/routes.yml'
+api:
+  prefix: /api
+  resource: 'routes/routes.yml'
