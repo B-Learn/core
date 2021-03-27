@@ -1,0 +1,3 @@
+register:
+  path: /users
+  controller: App\Users\UI\Http\Api\UserRegister
