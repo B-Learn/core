@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Domain;
 
+use App\Common\Event\EventBus;
 use App\Users\Domain\User;
 use App\Users\Domain\UserId;
 use App\Users\Domain\UserRepository;
@@ -12,7 +13,7 @@ use Ramsey\Uuid\Uuid;
 
 final class DoctrineUserRepository extends ServiceEntityRepository implements UserRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, private EventBus $eventBus)
     {
         parent::__construct($registry, User::class);
     }
@@ -25,6 +26,10 @@ final class DoctrineUserRepository extends ServiceEntityRepository implements Us
     public function add(User $user): void
     {
         $this->getEntityManager()->persist($user);
+
+        foreach ($user->getEvents() as $event) {
+            $this->eventBus->dispatch($event);
+        }
     }
 
     public function existsWithEmail(string $email): bool

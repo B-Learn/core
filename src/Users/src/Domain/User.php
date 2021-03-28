@@ -3,11 +3,12 @@ declare(strict_types=1);
 
 namespace App\Users\Domain;
 
+use App\Common\BuildingBlock\Entity;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-class User
+class User extends Entity
 {
     public function __construct(
         private UserId $id,
@@ -28,7 +29,7 @@ class User
         string $password,
         string $displayName
     ): self {
-        return new self(
+        $user = new self(
             $id,
             $email,
             $username,
@@ -38,5 +39,9 @@ class User
             new ArrayCollection(),
             new DateTimeImmutable()
         );
+
+        $user->publishEvent(new UserRegistered($id->getUuid(), $username, $email));
+
+        return $user;
     }
 }

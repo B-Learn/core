@@ -10,6 +10,9 @@ services:
     App\Common\Query\QueryHandler:
       tags:
         - { name: messenger.message_handler, bus: query.bus }
+    App\Common\Event\EventHandler:
+      tags:
+        - { name: messenger.message_handler, bus: event.bus }
 
   App\Users\:
     resource: '../../src/'
