@@ -9,6 +9,7 @@ abstract class UsersException extends LogicException
 {
     protected const USER_EXISTS_WITH_EMAIL = 1;
     protected const USER_EXISTS_WITH_USERNAME = 2;
+    protected const USER_NOT_FOUND = 3;
 
     final public function contextBasicCode(): int
     {

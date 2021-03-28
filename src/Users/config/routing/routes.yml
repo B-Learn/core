@@ -1,3 +1,9 @@
 register:
   path: /users
   controller: App\Users\UI\Http\Api\RegisterUser\RegisterUserController
+  methods: [POST]
+
+authenticate:
+  path: /users/auth
+  controller: App\Users\UI\Http\Api\Authenticate\AuthenticateController
+  methods: [ POST ]

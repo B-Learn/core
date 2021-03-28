@@ -6,6 +6,7 @@ namespace App\Users\Infrastructure\Domain;
 use App\Common\Event\EventBus;
 use App\Users\Domain\User;
 use App\Users\Domain\UserId;
+use App\Users\Domain\UserNotFoundException;
 use App\Users\Domain\UserRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -54,5 +55,18 @@ final class DoctrineUserRepository extends ServiceEntityRepository implements Us
         $query = $builder->getQuery();
 
         return null !== $query->getOneOrNullResult();
+    }
+
+    public function getByEmail(string $email): User
+    {
+        $user = $this->findOneBy([
+            'email' => $email
+        ]);
+
+        if ($user === null) {
+            throw UserNotFoundException::withCredentials();
+        }
+
+        return $user;
     }
 }

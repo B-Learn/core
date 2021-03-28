@@ -44,4 +44,14 @@ class User extends Entity
 
         return $user;
     }
+
+    public function getId(): UserId
+    {
+        return $this->id;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
 }
