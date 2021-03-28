@@ -51,8 +51,6 @@ final class RegisterUserController extends AbstractController
             ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        return new JsonResponse([
-            'test' => 'ok'
-        ]);
+        return new JsonResponse([], JsonResponse::HTTP_CREATED);
     }
 }

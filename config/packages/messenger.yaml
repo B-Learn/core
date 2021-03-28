@@ -19,5 +19,5 @@ framework:
             command.bus:
                 middleware:
                     - doctrine_transaction
-
+                    - 'App\Common\MessengerMiddleware\ErrorMiddleware'
             query.bus: ~
