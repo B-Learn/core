@@ -14,4 +14,9 @@ interface UserRepository
      * @throws UserNotFoundException
      */
     public function getByEmail(string $email): User;
+
+    /**
+     * @throws UserNotFoundException
+     */
+    public function getById(UserId $id): User;
 }

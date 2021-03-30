@@ -3,7 +3,11 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
 
         types:
-            Users_UserId: App\Users\Infrastructure\Persistence\Doctrine\Mapping\Users\UserIdType
+            # users
+            Users_UserId: App\Users\Infrastructure\Persistence\Doctrine\CustomTypes\UserIdType
+
+            # sharedKernel/language
+            Language_LanguageId: App\SharedKernel\Language\Infrastructure\Persistence\Doctrine\CustomTypes\LanguageIdType
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
@@ -13,4 +17,9 @@ doctrine:
                 is_bundle: false
                 type: xml
                 prefix: 'App\Users\Domain'
-                dir: '%kernel.project_dir%/src/Users/src/Infrastructure/Persistence/Doctrine/Mapping/Users'
+                dir: '%kernel.project_dir%/src/Users/src/Infrastructure/Persistence/Doctrine/Mapping'
+            App\SharedKernel\Language\Domain:
+                is_bundle: false
+                type: xml
+                prefix: 'App\SharedKernel\Language\Domain'
+                dir: '%kernel.project_dir%/src/SharedKernel/Language/src/Infrastructure/Persistence/Doctrine/Mapping'

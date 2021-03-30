@@ -69,4 +69,15 @@ final class DoctrineUserRepository extends ServiceEntityRepository implements Us
 
         return $user;
     }
+
+    public function getById(UserId $id): User
+    {
+        $user = $this->find($id);
+
+        if ($user === null) {
+            throw UserNotFoundException::byId($id);
+        }
+
+        return $user;
+    }
 }

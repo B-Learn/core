@@ -19,7 +19,8 @@
         "symfony/framework-bundle": "5.2.*",
         "symfony/messenger": "5.2.*",
         "symfony/proxy-manager-bridge": "5.2.*",
-        "symfony/yaml": "5.2.*"
+        "symfony/yaml": "5.2.*",
+        "zholus/symfony-middleware": "v2.1.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -32,7 +33,8 @@
         "psr-4": {
             "App\\": "src/",
             "App\\Common\\": "src/Common/src",
-            "App\\Users\\": "src/Users/src"
+            "App\\Users\\": "src/Users/src",
+            "App\\SharedKernel\\Language\\": "src/SharedKernel/Language/src"
         }
     },
     "autoload-dev": {

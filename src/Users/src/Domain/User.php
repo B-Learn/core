@@ -7,6 +7,7 @@ use App\Common\BuildingBlock\Entity;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use App\SharedKernel\Language\Domain\Language;
 
 class User extends Entity
 {
@@ -53,5 +54,12 @@ class User extends Entity
     public function getPassword(): string
     {
         return $this->password;
+    }
+
+    public function addNativeLanguage(Language $language): void
+    {
+        if (!$this->nativeLanguages->contains($language)) {
+            $this->nativeLanguages->add($language);
+        }
     }
 }

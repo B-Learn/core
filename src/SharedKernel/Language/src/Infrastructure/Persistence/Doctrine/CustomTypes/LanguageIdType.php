@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\Infrastructure\Persistence\Doctrine\Mapping\Users;
+namespace App\SharedKernel\Language\Infrastructure\Persistence\Doctrine\CustomTypes;
 
-use App\Users\Domain\UserId;
-use Doctrine\DBAL\Types\GuidType;
+use App\SharedKernel\Language\Domain\LanguageId;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\GuidType;
 
-class UserIdType extends GuidType
+class LanguageIdType extends GuidType
 {
-    const Uuid = 'Users_UserId';
+    const Uuid = 'Language_LanguageId';
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return new UserId($value);
+        return new LanguageId($value);
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)

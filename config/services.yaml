@@ -1,6 +1,7 @@
 imports:
   - { resource: '../src/Common/config/di/services.yml' }
   - { resource: '../src/Users/config/di/services.yml' }
+  - { resource: '../src/SharedKernel/Language/config/di/services.yml' }
 
 services:
   _defaults:

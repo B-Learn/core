@@ -6,4 +6,12 @@ register:
 authenticate:
   path: /users/auth
   controller: App\Users\UI\Http\Api\Authenticate\AuthenticateController
-  methods: [ POST ]
+  methods: [POST]
+
+add_native_languages:
+  path: /users/current/native-languages
+  controller: App\Users\UI\Http\Api\AddNativeLanguage\AddNativeLanguageController
+  methods: [POST]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'

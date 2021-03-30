@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48758130a4cdb8223b4e982b66cff682",
+    "content-hash": "8b0f19ba6eb958bcd0e527323c594cc6",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -5007,6 +5007,49 @@
                 }
             ],
             "time": "2021-03-06T07:59:01+00:00"
+        },
+        {
+            "name": "zholus/symfony-middleware",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zholus/symfony-middleware-bundle.git",
+                "reference": "db498adad70d45cadd06444bb1c6c4c84ce78507"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zholus/symfony-middleware-bundle/zipball/db498adad70d45cadd06444bb1c6c4c84ce78507",
+                "reference": "db498adad70d45cadd06444bb1c6c4c84ce78507",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5 || ^8.0",
+                "symfony/event-dispatcher": "^5.0",
+                "symfony/framework-bundle": "^5.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^8.5.0",
+                "symfony/var-dumper": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zholus\\SymfonyMiddleware\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/zholus/symfony-middleware-bundle/issues",
+                "source": "https://github.com/zholus/symfony-middleware-bundle/tree/v2.1.0"
+            },
+            "time": "2021-03-29T22:42:44+00:00"
         }
     ],
     "packages-dev": [],

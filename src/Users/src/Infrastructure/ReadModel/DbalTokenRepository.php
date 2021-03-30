@@ -45,4 +45,29 @@ final class DbalTokenRepository implements TokenRepository
             new DateTimeImmutable($row['refresh_token_expire_at']),
         );
     }
+
+    public function getUserIdByToken(string $accessToken): ?string
+    {
+        $builder = $this->connection->createQueryBuilder();
+
+        $builder
+            ->select('
+                t.user_id
+            ')
+            ->from('users_auth_tokens', 't')
+            ->where('t.access_token = :ACCESS_TOKEN')
+            ->andWhere('t.access_token_expire_at >= :NOW')
+            ->setParameter(':ACCESS_TOKEN', $accessToken)
+            ->setParameter(':NOW', (new DateTimeImmutable())->format(DATE_ATOM))
+        ;
+
+        $statement = $builder->execute();
+        $row = $statement->fetchAssociative();
+
+        if ($row === false) {
+            return null;
+        }
+
+        return $row['user_id'];
+    }
 }

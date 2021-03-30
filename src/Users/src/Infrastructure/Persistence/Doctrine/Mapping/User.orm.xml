@@ -14,5 +14,27 @@
         <field name="username" column="username" unique="true" />
         <field name="displayName" column="display_name" />
         <field name="createdAt" column="created_at" type="datetime_immutable" />
+
+        <many-to-many field="nativeLanguages" target-entity="App\SharedKernel\Language\Domain\Language">
+            <join-table name="users_native_languages">
+                <join-columns>
+                    <join-column name="user_id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="language_id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <many-to-many field="studyingLanguages" target-entity="App\SharedKernel\Language\Domain\Language">
+            <join-table name="users_studying_languages">
+                <join-columns>
+                    <join-column name="user_id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="language_id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 </doctrine-mapping>

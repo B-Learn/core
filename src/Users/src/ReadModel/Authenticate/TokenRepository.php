@@ -6,4 +6,5 @@ namespace App\Users\ReadModel\Authenticate;
 interface TokenRepository
 {
     public function getTokenByEmail(string $email): ?Token;
+    public function getUserIdByToken(string $accessToken): ?string;
 }
