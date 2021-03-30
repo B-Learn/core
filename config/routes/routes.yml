@@ -1,2 +1,5 @@
 users:
   resource: '../../src/Users/config/routing/routes.yml'
+
+languages:
+  resource: '../../src/SharedKernel/Language/config/routing/routes.yml'
