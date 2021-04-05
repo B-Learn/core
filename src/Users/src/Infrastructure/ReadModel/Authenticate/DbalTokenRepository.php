@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\Infrastructure\ReadModel;
+namespace App\Users\Infrastructure\ReadModel\Authenticate;
 
 use App\Users\ReadModel\Authenticate\Token;
 use App\Users\ReadModel\Authenticate\TokenRepository;

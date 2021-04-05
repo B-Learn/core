@@ -6,4 +6,5 @@ namespace App\SharedKernel\Language\ReadModel;
 interface LanguageRepository
 {
     public function getAll(): LanguageCollection;
+    public function getAllByIds(string ...$ids): LanguageCollection;
 }

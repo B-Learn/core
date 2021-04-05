@@ -39,3 +39,11 @@ remove_studying_languages:
   options:
     middleware:
       - 'App\Common\HttpMiddleware\NeedAuth'
+
+get_current_user_details:
+  path: /users/current
+  controller: App\Users\UI\Http\Api\GetCurrentUserDetails\GetCurrentUserDetailsController
+  methods: [GET]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
