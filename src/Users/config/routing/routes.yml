@@ -27,7 +27,15 @@ remove_native_languages:
 add_studying_languages:
   path: /users/current/studying-languages
   controller: App\Users\UI\Http\Api\AddStudyingLanguage\AddStudyingLanguageController
-  methods: [ POST ]
+  methods: [POST]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
+remove_studying_languages:
+  path: /users/current/studying-languages/{language_id}
+  controller: App\Users\UI\Http\Api\RemoveStudyingLanguage\RemoveStudyingLanguageController
+  methods: [DELETE]
   options:
     middleware:
       - 'App\Common\HttpMiddleware\NeedAuth'

@@ -76,4 +76,11 @@ class User extends Entity
             $this->studyingLanguages->add($language);
         }
     }
+
+    public function removeStudyingLanguage(Language $language): void
+    {
+        if ($this->studyingLanguages->contains($language)) {
+            $this->studyingLanguages->removeElement($language);
+        }
+    }
 }
