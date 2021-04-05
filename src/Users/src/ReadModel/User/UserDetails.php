@@ -3,16 +3,14 @@ declare(strict_types=1);
 
 namespace App\Users\ReadModel\User;
 
-use App\SharedKernel\Language\ReadModel\LanguageCollection;
-
 class UserDetails
 {
     public function __construct(
         private string $id,
         private string $username,
         private string $display_name,
-        private LanguageCollection $nativeLanguages,
-        private LanguageCollection $studyingLanguages
+        private array $nativeLanguagesIds,
+        private array $studyingLanguagesIds
     ) {
     }
 
@@ -31,13 +29,13 @@ class UserDetails
         return $this->display_name;
     }
 
-    public function getNativeLanguages(): LanguageCollection
+    public function getNativeLanguagesIds(): array
     {
-        return $this->nativeLanguages;
+        return $this->nativeLanguagesIds;
     }
 
-    public function getStudyingLanguages(): LanguageCollection
+    public function getStudyingLanguagesIds(): array
     {
-        return $this->studyingLanguages;
+        return $this->studyingLanguagesIds;
     }
 }

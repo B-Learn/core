@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace App\Users\Infrastructure\ReadModel\User;
 
-use App\SharedKernel\Language\ReadModel\LanguageCollection;
-use App\SharedKernel\Language\ReadModel\LanguageRepository;
 use App\Users\Domain\UserId;
 use App\Users\Domain\UserNotFoundException;
 use App\Users\ReadModel\User\UserDetails;
@@ -13,7 +11,7 @@ use Doctrine\DBAL\Connection;
 
 final class DbalUserRepository implements UserRepository
 {
-    public function __construct(private Connection $connection, private LanguageRepository $languages)
+    public function __construct(private Connection $connection)
     {
     }
 
@@ -47,13 +45,17 @@ final class DbalUserRepository implements UserRepository
             $row['id'],
             $row['username'],
             $row['display_name'],
-            $this->getLanguages(explode(',', $row['native_languages'] ?? '')),
-            $this->getLanguages(explode(',', $row['studying_languages'] ?? ''))
+            $this->getLanguages($row['native_languages'] ?? ''),
+            $this->getLanguages($row['studying_languages'] ?? '')
         );
     }
 
-    private function getLanguages(array $languageIds): LanguageCollection
+    private function getLanguages(string $ids): array
     {
-        return $this->languages->getAllByIds(...$languageIds);
+        if (empty($ids)) {
+            return [];
+        }
+
+        return explode(',', $ids);
     }
 }
