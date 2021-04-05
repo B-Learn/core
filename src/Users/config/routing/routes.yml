@@ -47,3 +47,8 @@ get_current_user_details:
   options:
     middleware:
       - 'App\Common\HttpMiddleware\NeedAuth'
+
+get_user_details:
+  path: /users/{user_id}
+  controller: App\Users\UI\Http\Api\GetUserDetails\GetUserDetailsController
+  methods: [GET]

@@ -39,7 +39,7 @@ final class DbalUserRepository implements UserRepository
         $statement = $builder->execute();
         $row = $statement->fetchAssociative();
 
-        if ($row === false) {
+        if ($row === false || $row['id'] === null) {
             throw UserNotFoundException::byId(new UserId($userId));
         }
 
