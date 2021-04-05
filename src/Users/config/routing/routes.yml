@@ -15,3 +15,11 @@ add_native_languages:
   options:
     middleware:
       - 'App\Common\HttpMiddleware\NeedAuth'
+
+remove_native_languages:
+  path: /users/current/native-languages/{language_id}
+  controller: App\Users\UI\Http\Api\RemoveNativeLanguage\RemoveNativeLanguageController
+  methods: [DELETE]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
