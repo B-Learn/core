@@ -27,10 +27,6 @@ final class DoctrineUserRepository extends ServiceEntityRepository implements Us
     public function add(User $user): void
     {
         $this->getEntityManager()->persist($user);
-
-        foreach ($user->getEvents() as $event) {
-            $this->eventBus->dispatch($event);
-        }
     }
 
     public function existsWithEmail(string $email): bool

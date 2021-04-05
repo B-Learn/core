@@ -17,6 +17,11 @@ abstract class Entity
         $this->events[] = $event;
     }
 
+    public function clearEvents(): void
+    {
+        $this->events = [];
+    }
+
     public function getEvents(): array
     {
         return $this->events;
