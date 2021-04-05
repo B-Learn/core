@@ -58,6 +58,10 @@ class User extends Entity
 
     public function addNativeLanguage(Language $language): void
     {
+        if ($this->studyingLanguages->contains($language)) {
+            throw ConflictLanguagesException::withStudying($language->getId());
+        }
+
         if (!$this->nativeLanguages->contains($language)) {
             $this->nativeLanguages->add($language);
         }
@@ -72,6 +76,10 @@ class User extends Entity
 
     public function addStudyingLanguage(Language $language): void
     {
+        if ($this->nativeLanguages->contains($language)) {
+            throw ConflictLanguagesException::withNative($language->getId());
+        }
+
         if (!$this->studyingLanguages->contains($language)) {
             $this->studyingLanguages->add($language);
         }

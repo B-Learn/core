@@ -15,4 +15,9 @@ class Language
         $this->name = $name;
         $this->shortName = $shortName;
     }
+
+    public function getId(): LanguageId
+    {
+        return $this->id;
+    }
 }
