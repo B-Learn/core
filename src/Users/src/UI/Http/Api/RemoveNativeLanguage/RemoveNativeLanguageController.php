@@ -14,13 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RemoveNativeLanguageController extends AbstractController
 {
-    private CommandBus $commandBus;
-    private AuthenticatedUserContext $loggedUserContext;
-
-    public function __construct(CommandBus $commandBus, AuthenticatedUserContext $loggedUserContext)
+    public function __construct(private CommandBus $commandBus, private AuthenticatedUserContext $loggedUserContext)
     {
-        $this->commandBus = $commandBus;
-        $this->loggedUserContext = $loggedUserContext;
     }
 
     public function __invoke(Request $request): JsonResponse

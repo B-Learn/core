@@ -15,6 +15,6 @@ final class GetUserDetailsHandler implements QueryHandler
 
     public function __invoke(GetUserDetailsQuery $query): UserDetails
     {
-        return $this->users->getDetailsById($query->getUserId());
+        return $this->users->getDetailsById($query->getUserId(), $query->isFullInfo());
     }
 }

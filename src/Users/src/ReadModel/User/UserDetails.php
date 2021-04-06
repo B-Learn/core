@@ -7,6 +7,7 @@ class UserDetails
 {
     public function __construct(
         private string $id,
+        private ?string $email,
         private string $username,
         private string $display_name,
         private array $nativeLanguagesIds,
@@ -17,6 +18,11 @@ class UserDetails
     public function getId(): string
     {
         return $this->id;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
     }
 
     public function getUsername(): string

@@ -12,6 +12,7 @@ abstract class UsersException extends LogicException
     protected const USER_NOT_FOUND = 3;
     protected const CONFLICT_NATIVE_LANGUAGE = 4;
     protected const CONFLICT_STUDYING_LANGUAGE = 5;
+    protected const CURRENT_PASSWORD_IS_NOT_VALID = 6;
 
     final public function contextBasicCode(): int
     {

@@ -91,4 +91,9 @@ class User extends Entity
             $this->studyingLanguages->removeElement($language);
         }
     }
+
+    public function changePassword(string $newHashedPassword): void
+    {
+        $this->password = $newHashedPassword;
+    }
 }

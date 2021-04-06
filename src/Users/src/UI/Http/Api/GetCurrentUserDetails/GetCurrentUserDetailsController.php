@@ -24,7 +24,10 @@ final class GetCurrentUserDetailsController extends AbstractController
     public function __invoke(): Response
     {
         /** @var UserDetails $userDetails */
-        $userDetails = $this->queryBus->handle(new GetUserDetailsQuery($this->authenticatedUserContext->getUserId()));
+        $userDetails = $this->queryBus->handle(new GetUserDetailsQuery(
+            $this->authenticatedUserContext->getUserId(),
+            true
+        ));
 
         return new JsonResponse(
             $this->userDetailsPresenter->present($userDetails)

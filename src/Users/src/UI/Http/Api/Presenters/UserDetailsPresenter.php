@@ -9,12 +9,21 @@ class UserDetailsPresenter
 {
     public function present(UserDetails $userDetails): array
     {
-        return [
+        $basicData = [
             'id' => $userDetails->getId(),
             'username' => $userDetails->getUsername(),
             'display_name' => $userDetails->getDisplayName(),
             'native_languages' => $userDetails->getNativeLanguagesIds(),
             'studying_languages' => $userDetails->getStudyingLanguagesIds(),
         ];
+
+        $additionalData = [];
+
+        if ($userDetails->getEmail() !== null) {
+            $additionalData['email'] = $userDetails->getEmail();
+        }
+
+
+        return array_merge($basicData, $additionalData);
     }
 }
