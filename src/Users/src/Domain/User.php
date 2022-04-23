@@ -96,4 +96,14 @@ class User extends Entity
     {
         $this->password = $newHashedPassword;
     }
+
+    public function changeDisplayName(string $displayName): void
+    {
+        $this->displayName = $displayName;
+    }
+
+    public function changeUserName(string $username): void
+    {
+        $this->username = $username;
+    }
 }

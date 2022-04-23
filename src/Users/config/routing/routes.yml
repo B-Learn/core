@@ -53,6 +53,14 @@ get_user_details:
   controller: App\Users\UI\Http\Api\GetUserDetails\GetUserDetailsController
   methods: [GET]
 
+update_current_user_details:
+  path: /users/current
+  controller: App\Users\UI\Http\Api\UpdateCurrentUserDetails\UpdateCurrentUserDetailsController
+  methods: [PUT]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
 update_current_user_password:
   path: /users/current/password
   controller: App\Users\UI\Http\Api\UpdateCurrentUserPassword\UpdateCurrentUserPasswordController
