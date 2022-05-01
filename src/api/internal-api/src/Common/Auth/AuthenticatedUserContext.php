@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Common\Auth;
+namespace App\InternalApi\Common\Auth;
 
 interface AuthenticatedUserContext
 {

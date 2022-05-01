@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\InternalApi\Users\Action;
 
-use App\Common\Auth\AuthenticatedUserContext;
 use App\Common\Command\CommandBus;
 use App\Common\Exception\LogicException;
-use App\Common\Validation\Assertion;
+use App\InternalApi\Common\Auth\AuthenticatedUserContext;
+use App\InternalApi\Common\Validation\Assertion;
 use App\Users\Application\UpdateCurrentUserPassword\UpdateCurrentUserPasswordCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

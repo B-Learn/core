@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\InternalApi\Users\Action;
 
-use App\Common\Auth\AuthenticatedUserContext;
 use App\Common\Query\QueryBus;
+use App\InternalApi\Common\Auth\AuthenticatedUserContext;
 use App\Users\Application\GetUserDetails\GetUserDetailsQuery;
 use App\Users\ReadModel\User\UserDetails;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

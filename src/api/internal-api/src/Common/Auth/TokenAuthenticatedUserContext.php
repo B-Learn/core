@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Common\Auth;
+namespace App\InternalApi\Common\Auth;
 
 use App\Common\Query\QueryBus;
 use App\Users\Application\GetUserIdByToken\GetUserIdByTokenQuery;
@@ -9,8 +9,10 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class TokenAuthenticatedUserContext implements AuthenticatedUserContext
 {
-    public function __construct(private RequestStack $requestStack, private QueryBus $queryBus)
-    {
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        private readonly QueryBus $queryBus
+    ) {
     }
 
     public function getUserId(): string

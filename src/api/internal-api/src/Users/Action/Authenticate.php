@@ -6,7 +6,7 @@ namespace App\InternalApi\Users\Action;
 use App\Common\Command\CommandBus;
 use App\Common\Exception\LogicException;
 use App\Common\Query\QueryBus;
-use App\Common\Validation\Assertion;
+use App\InternalApi\Common\Validation\Assertion;
 use App\Users\Application\Authenticate\AuthenticateCommand;
 use App\Users\Application\GetAccessTokenByEmail\GetAccessTokenByEmailQuery;
 use App\Users\ReadModel\Authenticate\Token;

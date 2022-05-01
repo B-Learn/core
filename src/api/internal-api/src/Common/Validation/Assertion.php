@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Common\Validation;
+namespace App\InternalApi\Common\Validation;
 
 use Assert\Assert;
 

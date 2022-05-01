@@ -5,7 +5,7 @@ namespace App\InternalApi\Users\Action;
 
 use App\Common\Command\CommandBus;
 use App\Common\Exception\LogicException;
-use App\Common\Validation\Assertion;
+use App\InternalApi\Common\Validation\Assertion;
 use App\Users\Application\RegisterUser\RegisterUserCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

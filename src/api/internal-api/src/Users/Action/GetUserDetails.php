@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\InternalApi\Users\Action;
 
 use App\Common\Query\QueryBus;
-use App\Common\Validation\Assertion;
+use App\InternalApi\Common\Validation\Assertion;
 use App\Users\Application\GetUserDetails\GetUserDetailsQuery;
 use App\Users\ReadModel\User\UserDetails;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
