@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\SharedKernel\Language\UI\Http\Api\Presenters;
+namespace App\InternalApi\Languages\Action;
 
 use App\SharedKernel\Language\ReadModel\Language;
 

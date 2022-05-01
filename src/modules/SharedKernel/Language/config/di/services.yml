@@ -16,7 +16,3 @@ services:
 
   App\SharedKernel\Language\:
     resource: '../../src/'
-
-  App\SharedKernel\Language\UI\:
-    resource: '../../src/UI/'
-    tags: ['controller.service_arguments']
