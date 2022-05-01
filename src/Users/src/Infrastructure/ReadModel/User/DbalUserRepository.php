@@ -25,7 +25,7 @@ final class DbalUserRepository implements UserRepository
             ->leftJoin('u', 'users_native_languages', 'unl', 'unl.user_id = u.id')
             ->leftJoin('u', 'users_studying_languages', 'usl', 'usl.user_id = u.id')
             ->where('u.id = :USER_ID')
-            ->setParameter(':USER_ID', $userId)
+            ->setParameter('USER_ID', $userId)
         ;
 
         $statement = $builder->execute();

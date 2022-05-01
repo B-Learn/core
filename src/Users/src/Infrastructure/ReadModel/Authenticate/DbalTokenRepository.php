@@ -28,7 +28,7 @@ final class DbalTokenRepository implements TokenRepository
             ->from('users_auth_tokens', 't')
             ->join('t', 'users', 'u', 't.user_id = u.id')
             ->where('u.email = :EMAIL')
-            ->setParameter(':EMAIL', $email)
+            ->setParameter('EMAIL', $email)
         ;
 
         $statement = $builder->execute();
@@ -57,8 +57,8 @@ final class DbalTokenRepository implements TokenRepository
             ->from('users_auth_tokens', 't')
             ->where('t.access_token = :ACCESS_TOKEN')
             ->andWhere('t.access_token_expire_at >= :NOW')
-            ->setParameter(':ACCESS_TOKEN', $accessToken)
-            ->setParameter(':NOW', (new DateTimeImmutable())->format(DATE_ATOM))
+            ->setParameter('ACCESS_TOKEN', $accessToken)
+            ->setParameter('NOW', (new DateTimeImmutable())->format(DATE_ATOM))
         ;
 
         $statement = $builder->execute();

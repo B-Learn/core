@@ -49,16 +49,16 @@ final class CredentialsAuthService implements AuthService
 
         $builder = $this->connection->createQueryBuilder();
 
-        $statement = $builder
+        $result = $builder
             ->select('1')
             ->from(self::TABLE_NAME, 't')
             ->where('t.access_token = :ACCESS_TOKEN')
             ->orWhere('t.refresh_token = :REFRESH_TOKEN')
-            ->setParameter(':ACCESS_TOKEN', $accessToken)
-            ->setParameter(':REFRESH_TOKEN', $refreshToken)
-            ->execute();
+            ->setParameter('ACCESS_TOKEN', $accessToken)
+            ->setParameter('REFRESH_TOKEN', $refreshToken)
+            ->executeQuery();
 
-        if ($statement->fetchAssociative() !== false) {
+        if ($result->fetchAssociative() !== false) {
             return $this->tokens();
         }
 

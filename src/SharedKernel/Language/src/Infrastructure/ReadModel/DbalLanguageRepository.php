@@ -42,7 +42,7 @@ final class DbalLanguageRepository implements LanguageRepository
             ->select('*')
             ->from('languages', 'l')
             ->where('l.id IN (:IDS)')
-            ->setParameter(':IDS', $ids, Connection::PARAM_STR_ARRAY)
+            ->setParameter('IDS', $ids, Connection::PARAM_STR_ARRAY)
         ;
 
         $rows = $builder->execute()->fetchAllAssociative();
