@@ -37,6 +37,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
+            "App\\InternalApi\\": "src/api/internal-api/src",
             "App\\Common\\": "src/modules/Common/src",
             "App\\Users\\": "src/modules/Users/src",
             "App\\SharedKernel\\Language\\": "src/modules/SharedKernel/Language/src"

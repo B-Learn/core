@@ -1,4 +1,5 @@
 imports:
+  - { resource: '../src/api/internal-api/config/di/services.yml' }
   - { resource: '../src/modules/Common/config/di/services.yml' }
   - { resource: '../src/modules/Users/config/di/services.yml' }
   - { resource: '../src/modules/SharedKernel/Language/config/di/services.yml' }

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\SharedKernel\Language\UI\Http\Api\LanguageList;
+namespace App\InternalApi\Languages\Action;
 
 use App\Common\Query\QueryBus;
 use App\SharedKernel\Language\Application\GetLanguagesList\GetLanguagesListQuery;
@@ -11,10 +11,12 @@ use App\SharedKernel\Language\UI\Http\Api\Presenters\LanguagePresenter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-final class LanguageListController extends AbstractController
+final class LanguageList extends AbstractController
 {
-    public function __construct(private QueryBus $queryBus, private LanguagePresenter $languagePresenter)
-    {
+    public function __construct(
+        private readonly QueryBus $queryBus,
+        private readonly LanguagePresenter $languagePresenter
+    ) {
     }
 
     public function __invoke(): JsonResponse
@@ -28,9 +30,10 @@ final class LanguageListController extends AbstractController
     private function present(LanguageCollection $list): array
     {
         return [
-            'data' => array_map(function (Language $language) {
-                return $this->languagePresenter->present($language);
-            }, $list->getLanguages())
+            'data' => array_map(
+                fn (Language $language) => $this->languagePresenter->present($language),
+                $list->getLanguages()
+            )
         ];
     }
 }
