@@ -42,7 +42,7 @@ remove_studying_languages:
 
 get_current_user_details:
   path: /users/current
-  controller: App\Users\UI\Http\Api\GetCurrentUserDetails\GetCurrentUserDetailsController
+  controller: App\InternalApi\Users\Action\GetCurrentUserDetails
   methods: [GET]
   options:
     middleware:
@@ -50,7 +50,7 @@ get_current_user_details:
 
 get_user_details:
   path: /users/{user_id}
-  controller: App\Users\UI\Http\Api\GetUserDetails\GetUserDetailsController
+  controller: App\InternalApi\Users\Action\GetUserDetails
   methods: [GET]
 
 update_current_user_details:

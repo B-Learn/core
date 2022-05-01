@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\UI\Http\Api\Presenters;
+namespace App\InternalApi\Users\Action;
 
 use App\Users\ReadModel\User\UserDetails;
 

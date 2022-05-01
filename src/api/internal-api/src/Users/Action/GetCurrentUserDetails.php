@@ -1,23 +1,22 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\UI\Http\Api\GetCurrentUserDetails;
+namespace App\InternalApi\Users\Action;
 
 use App\Common\Auth\AuthenticatedUserContext;
 use App\Common\Query\QueryBus;
 use App\Users\Application\GetUserDetails\GetUserDetailsQuery;
 use App\Users\ReadModel\User\UserDetails;
-use App\Users\UI\Http\Api\Presenters\UserDetailsPresenter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-final class GetCurrentUserDetailsController extends AbstractController
+final class GetCurrentUserDetails extends AbstractController
 {
     public function __construct(
-        private QueryBus $queryBus,
-        private AuthenticatedUserContext $authenticatedUserContext,
-        private UserDetailsPresenter $userDetailsPresenter
+        private readonly QueryBus $queryBus,
+        private readonly AuthenticatedUserContext $authenticatedUserContext,
+        private readonly UserDetailsPresenter $userDetailsPresenter
     ) {
     }
 

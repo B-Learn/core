@@ -16,7 +16,3 @@ services:
 
   App\Users\:
     resource: '../../src/'
-
-  App\Users\UI\:
-    resource: '../../src/UI/'
-    tags: ['controller.service_arguments']
