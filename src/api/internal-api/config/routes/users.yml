@@ -1,6 +1,6 @@
 register:
   path: /users
-  controller: App\Users\UI\Http\Api\RegisterUser\RegisterUserController
+  controller: App\InternalApi\Users\Action\RegisterUser
   methods: [POST]
 
 authenticate:

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\UI\Http\Api\RegisterUser;
+namespace App\InternalApi\Users\Action;
 
 use App\Common\Command\CommandBus;
 use App\Common\Exception\LogicException;
@@ -11,10 +11,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-final class RegisterUserController extends AbstractController
+final class RegisterUser extends AbstractController
 {
     public function __construct(
-        private CommandBus $commandBus
+        private readonly CommandBus $commandBus
     ) {
     }
 
