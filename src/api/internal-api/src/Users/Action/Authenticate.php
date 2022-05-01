@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\UI\Http\Api\Authenticate;
+namespace App\InternalApi\Users\Action;
 
 use App\Common\Command\CommandBus;
 use App\Common\Exception\LogicException;
@@ -15,10 +15,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-final class AuthenticateController extends AbstractController
+final class Authenticate extends AbstractController
 {
-    public function __construct(private CommandBus $commandBus, private QueryBus $queryBus)
-    {
+    public function __construct(
+        private readonly CommandBus $commandBus,
+        private readonly QueryBus $queryBus
+    ) {
     }
 
     public function __invoke(Request $request): JsonResponse

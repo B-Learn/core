@@ -5,7 +5,7 @@ register:
 
 authenticate:
   path: /users/auth
-  controller: App\Users\UI\Http\Api\Authenticate\AuthenticateController
+  controller: App\InternalApi\Users\Action\Authenticate
   methods: [POST]
 
 add_native_languages:
