@@ -1,0 +1,5 @@
+users:
+  resource: './routes/users.yml'
+
+languages:
+  resource: './routes/languages.yml'

@@ -1,0 +1,70 @@
+register:
+  path: /users
+  controller: App\Users\UI\Http\Api\RegisterUser\RegisterUserController
+  methods: [POST]
+
+authenticate:
+  path: /users/auth
+  controller: App\Users\UI\Http\Api\Authenticate\AuthenticateController
+  methods: [POST]
+
+add_native_languages:
+  path: /users/current/native-languages
+  controller: App\Users\UI\Http\Api\AddNativeLanguage\AddNativeLanguageController
+  methods: [POST]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
+remove_native_languages:
+  path: /users/current/native-languages/{language_id}
+  controller: App\Users\UI\Http\Api\RemoveNativeLanguage\RemoveNativeLanguageController
+  methods: [DELETE]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
+add_studying_languages:
+  path: /users/current/studying-languages
+  controller: App\Users\UI\Http\Api\AddStudyingLanguage\AddStudyingLanguageController
+  methods: [POST]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
+remove_studying_languages:
+  path: /users/current/studying-languages/{language_id}
+  controller: App\Users\UI\Http\Api\RemoveStudyingLanguage\RemoveStudyingLanguageController
+  methods: [DELETE]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
+get_current_user_details:
+  path: /users/current
+  controller: App\Users\UI\Http\Api\GetCurrentUserDetails\GetCurrentUserDetailsController
+  methods: [GET]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
+get_user_details:
+  path: /users/{user_id}
+  controller: App\Users\UI\Http\Api\GetUserDetails\GetUserDetailsController
+  methods: [GET]
+
+update_current_user_details:
+  path: /users/current
+  controller: App\Users\UI\Http\Api\UpdateCurrentUserDetails\UpdateCurrentUserDetailsController
+  methods: [PUT]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
+
+update_current_user_password:
+  path: /users/current/password
+  controller: App\Users\UI\Http\Api\UpdateCurrentUserPassword\UpdateCurrentUserPasswordController
+  methods: [PUT]
+  options:
+    middleware:
+      - 'App\Common\HttpMiddleware\NeedAuth'
