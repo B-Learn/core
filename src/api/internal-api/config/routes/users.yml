@@ -10,7 +10,7 @@ authenticate:
 
 add_native_languages:
   path: /users/current/native-languages
-  controller: App\Users\UI\Http\Api\AddNativeLanguage\AddNativeLanguageController
+  controller: App\InternalApi\Users\Action\AddNativeLanguage
   methods: [POST]
   options:
     middleware:
