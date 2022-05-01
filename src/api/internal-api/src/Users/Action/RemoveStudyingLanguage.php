@@ -1,20 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\UI\Http\Api\RemoveStudyingLanguage;
+namespace App\InternalApi\Users\Action;
 
 use App\Common\Auth\AuthenticatedUserContext;
 use App\Common\Command\CommandBus;
 use App\Common\Exception\LogicException;
 use App\Common\Validation\Assertion;
 use App\Users\Application\RemoveStudyingLanguage\RemoveStudyingLanguageCommand;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class RemoveStudyingLanguageController
+class RemoveStudyingLanguage extends AbstractController
 {
-    public function __construct(private CommandBus $commandBus, private AuthenticatedUserContext $loggedUserContext)
-    {
+    public function __construct(
+        private readonly CommandBus $commandBus,
+        private readonly AuthenticatedUserContext $loggedUserContext
+    ) {
     }
 
     public function __invoke(Request $request): JsonResponse

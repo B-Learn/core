@@ -34,7 +34,7 @@ add_studying_languages:
 
 remove_studying_languages:
   path: /users/current/studying-languages/{language_id}
-  controller: App\Users\UI\Http\Api\RemoveStudyingLanguage\RemoveStudyingLanguageController
+  controller: App\InternalApi\Users\Action\RemoveStudyingLanguage
   methods: [DELETE]
   options:
     middleware:
