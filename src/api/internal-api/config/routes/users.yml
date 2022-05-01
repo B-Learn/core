@@ -55,7 +55,7 @@ get_user_details:
 
 update_current_user_details:
   path: /users/current
-  controller: App\Users\UI\Http\Api\UpdateCurrentUserDetails\UpdateCurrentUserDetailsController
+  controller: App\InternalApi\Users\Action\UpdateCurrentUserDetails
   methods: [PUT]
   options:
     middleware:
