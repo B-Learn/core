@@ -63,7 +63,7 @@ update_current_user_details:
 
 update_current_user_password:
   path: /users/current/password
-  controller: App\Users\UI\Http\Api\UpdateCurrentUserPassword\UpdateCurrentUserPasswordController
+  controller: App\InternalApi\Users\Action\UpdateCurrentUserPassword
   methods: [PUT]
   options:
     middleware:

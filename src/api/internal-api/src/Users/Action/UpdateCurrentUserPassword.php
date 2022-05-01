@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\UI\Http\Api\UpdateCurrentUserPassword;
+namespace App\InternalApi\Users\Action;
 
 use App\Common\Auth\AuthenticatedUserContext;
 use App\Common\Command\CommandBus;
@@ -13,10 +13,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class UpdateCurrentUserPasswordController extends AbstractController
+final class UpdateCurrentUserPassword extends AbstractController
 {
-    public function __construct(private CommandBus $commandBus, private AuthenticatedUserContext $loggedUserContext)
-    {
+    public function __construct(
+        private readonly CommandBus $commandBus,
+        private readonly AuthenticatedUserContext $loggedUserContext
+    ) {
     }
 
     public function __invoke(Request $request): Response
