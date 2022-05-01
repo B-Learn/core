@@ -37,9 +37,9 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "App\\Common\\": "src/Common/src",
-            "App\\Users\\": "src/Users/src",
-            "App\\SharedKernel\\Language\\": "src/SharedKernel/Language/src"
+            "App\\Common\\": "src/modules/Common/src",
+            "App\\Users\\": "src/modules/Users/src",
+            "App\\SharedKernel\\Language\\": "src/modules/SharedKernel/Language/src"
         }
     },
     "autoload-dev": {

@@ -17,9 +17,9 @@ doctrine:
                 is_bundle: false
                 type: xml
                 prefix: 'App\Users\Domain'
-                dir: '%kernel.project_dir%/src/Users/src/Infrastructure/Persistence/Doctrine/Mapping'
+                dir: '%kernel.project_dir%/src/modules/Users/src/Infrastructure/Persistence/Doctrine/Mapping'
             App\SharedKernel\Language\Domain:
                 is_bundle: false
                 type: xml
                 prefix: 'App\SharedKernel\Language\Domain'
-                dir: '%kernel.project_dir%/src/SharedKernel/Language/src/Infrastructure/Persistence/Doctrine/Mapping'
+                dir: '%kernel.project_dir%/src/modules/SharedKernel/Language/src/Infrastructure/Persistence/Doctrine/Mapping'

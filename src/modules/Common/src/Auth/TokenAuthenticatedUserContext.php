@@ -15,7 +15,7 @@ final class TokenAuthenticatedUserContext implements AuthenticatedUserContext
 
     public function getUserId(): string
     {
-        $request = $this->requestStack->getMasterRequest();
+        $request = $this->requestStack->getMainRequest();
 
         $token = $request->headers->get('Authorization', '');
 

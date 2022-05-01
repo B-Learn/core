@@ -7,7 +7,6 @@ use App\Common\Auth\AuthenticatedUserContext;
 use App\Common\Command\CommandBus;
 use App\Common\Exception\LogicException;
 use App\Common\Validation\Assertion;
-use App\Users\Application\AddNativeLanguage\AddNativeLanguageCommand;
 use App\Users\Application\AddStudyingLanguage\AddStudyingLanguageCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

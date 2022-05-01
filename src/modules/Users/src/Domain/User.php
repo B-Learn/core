@@ -4,10 +4,10 @@ declare(strict_types=1);
 namespace App\Users\Domain;
 
 use App\Common\BuildingBlock\Entity;
+use App\SharedKernel\Language\Domain\Language;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use App\SharedKernel\Language\Domain\Language;
 
 class User extends Entity
 {
