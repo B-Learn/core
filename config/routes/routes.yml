@@ -1,5 +1,0 @@
-users:
-  resource: '../../src/modules/Users/config/routing/routes.yml'
-
-languages:
-  resource: '../../src/modules/SharedKernel/Language/config/routing/routes.yml'

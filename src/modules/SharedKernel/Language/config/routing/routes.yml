@@ -1,4 +1,0 @@
-languages:
-  path: /languages
-  controller: App\SharedKernel\Language\UI\Http\Api\LanguageList\LanguageListController
-  methods: [GET]
