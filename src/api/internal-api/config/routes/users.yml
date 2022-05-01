@@ -18,7 +18,7 @@ add_native_languages:
 
 remove_native_languages:
   path: /users/current/native-languages/{language_id}
-  controller: App\Users\UI\Http\Api\RemoveNativeLanguage\RemoveNativeLanguageController
+  controller: App\InternalApi\Users\Action\RemoveNativeLanguage
   methods: [DELETE]
   options:
     middleware:

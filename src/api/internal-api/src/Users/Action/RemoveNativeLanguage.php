@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Users\UI\Http\Api\RemoveNativeLanguage;
+namespace App\InternalApi\Users\Action;
 
 use App\Common\Auth\AuthenticatedUserContext;
 use App\Common\Command\CommandBus;
@@ -12,10 +12,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-final class RemoveNativeLanguageController extends AbstractController
+final class RemoveNativeLanguage extends AbstractController
 {
-    public function __construct(private CommandBus $commandBus, private AuthenticatedUserContext $loggedUserContext)
-    {
+    public function __construct(
+        private readonly CommandBus $commandBus,
+        private readonly AuthenticatedUserContext $loggedUserContext
+    ) {
     }
 
     public function __invoke(Request $request): JsonResponse
