@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9a7d3727aadc2036039e3fc442c3b98",
+    "content-hash": "6107a5851cee52672a23f073663a967c",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -4727,16 +4727,16 @@
         },
         {
             "name": "zholus/symfony-middleware",
-            "version": "dev-symfony_6_support",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zholus/symfony-middleware-bundle.git",
-                "reference": "7df478beb9ce9e1ed002a7228e347f944d651f9f"
+                "reference": "61469ed81c26a72c3621e4d3377efa8f59742c67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zholus/symfony-middleware-bundle/zipball/7df478beb9ce9e1ed002a7228e347f944d651f9f",
-                "reference": "7df478beb9ce9e1ed002a7228e347f944d651f9f",
+                "url": "https://api.github.com/repos/zholus/symfony-middleware-bundle/zipball/61469ed81c26a72c3621e4d3377efa8f59742c67",
+                "reference": "61469ed81c26a72c3621e4d3377efa8f59742c67",
                 "shasum": ""
             },
             "require": {
@@ -4764,17 +4764,15 @@
             ],
             "support": {
                 "issues": "https://github.com/zholus/symfony-middleware-bundle/issues",
-                "source": "https://github.com/zholus/symfony-middleware-bundle/tree/symfony_6_support"
+                "source": "https://github.com/zholus/symfony-middleware-bundle/tree/v3.0.0"
             },
-            "time": "2022-04-26T11:03:13+00:00"
+            "time": "2022-05-01T11:53:26+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "zholus/symfony-middleware": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
