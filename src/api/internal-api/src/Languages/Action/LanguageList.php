@@ -30,13 +30,11 @@ final class LanguageList extends AbstractController
 
     private function present(LanguageCollection $list): array
     {
-        return [
-            'data' => array_map(
-                fn (Language $language) => $this->languagePresenter->present(
-                    $this->languageFactory->fromReadModel($language)
-                ),
-                $list->getLanguages()
-            )
-        ];
+        return array_map(
+            fn (Language $language) => $this->languagePresenter->present(
+                $this->languageFactory->fromReadModel($language)
+            ),
+            $list->getLanguages()
+        );
     }
 }
