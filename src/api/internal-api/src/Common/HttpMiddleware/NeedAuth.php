@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Common\HttpMiddleware;
+namespace App\InternalApi\Common\HttpMiddleware;
 
 use App\Common\Query\QueryBus;
 use App\Users\Application\GetUserIdByToken\GetUserIdByTokenQuery;

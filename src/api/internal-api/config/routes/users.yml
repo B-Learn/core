@@ -14,7 +14,7 @@ add_native_languages:
   methods: [POST]
   options:
     middleware:
-      - 'App\Common\HttpMiddleware\NeedAuth'
+      - 'App\InternalApi\Common\HttpMiddleware\NeedAuth'
 
 remove_native_languages:
   path: /users/current/native-languages/{language_id}
@@ -22,7 +22,7 @@ remove_native_languages:
   methods: [DELETE]
   options:
     middleware:
-      - 'App\Common\HttpMiddleware\NeedAuth'
+      - 'App\InternalApi\Common\HttpMiddleware\NeedAuth'
 
 add_studying_languages:
   path: /users/current/studying-languages
@@ -30,7 +30,7 @@ add_studying_languages:
   methods: [POST]
   options:
     middleware:
-      - 'App\Common\HttpMiddleware\NeedAuth'
+      - 'App\InternalApi\Common\HttpMiddleware\NeedAuth'
 
 remove_studying_languages:
   path: /users/current/studying-languages/{language_id}
@@ -38,7 +38,7 @@ remove_studying_languages:
   methods: [DELETE]
   options:
     middleware:
-      - 'App\Common\HttpMiddleware\NeedAuth'
+      - 'App\InternalApi\Common\HttpMiddleware\NeedAuth'
 
 get_current_user_details:
   path: /users/current
@@ -46,7 +46,7 @@ get_current_user_details:
   methods: [GET]
   options:
     middleware:
-      - 'App\Common\HttpMiddleware\NeedAuth'
+      - 'App\InternalApi\Common\HttpMiddleware\NeedAuth'
 
 get_user_details:
   path: /users/{user_id}
@@ -59,7 +59,7 @@ update_current_user_details:
   methods: [PUT]
   options:
     middleware:
-      - 'App\Common\HttpMiddleware\NeedAuth'
+      - 'App\InternalApi\Common\HttpMiddleware\NeedAuth'
 
 update_current_user_password:
   path: /users/current/password
@@ -67,4 +67,4 @@ update_current_user_password:
   methods: [PUT]
   options:
     middleware:
-      - 'App\Common\HttpMiddleware\NeedAuth'
+      - 'App\InternalApi\Common\HttpMiddleware\NeedAuth'
