@@ -5,6 +5,7 @@ namespace App\InternalApi\Users\Action;
 
 use App\Common\Query\QueryBus;
 use App\InternalApi\Common\Auth\AuthenticatedUserContext;
+use App\InternalApi\Common\Presenter\ResponsePresenter;
 use App\InternalApi\Common\Validation\Assertion;
 use App\InternalApi\Users\Resources\UserFactory;
 use App\Users\Application\GetUserDetails\GetUserDetailsQuery;
@@ -18,9 +19,9 @@ final class GetUserDetails extends AbstractController
 {
     public function __construct(
         private readonly QueryBus $queryBus,
-        private readonly UserPresenter $userDetailsPresenter,
         private readonly UserFactory $userFactory,
-        private readonly AuthenticatedUserContext $authenticatedUserContext
+        private readonly AuthenticatedUserContext $authenticatedUserContext,
+        private readonly ResponsePresenter $responsePresenter
     ) {
     }
 
@@ -35,7 +36,7 @@ final class GetUserDetails extends AbstractController
         if (!empty($errors)) {
             return new JsonResponse([
                 'errors' => $errors
-            ], JsonResponse::HTTP_BAD_REQUEST);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         /** @var UserDetails $userDetails */
@@ -43,8 +44,6 @@ final class GetUserDetails extends AbstractController
 
         $userResource = $this->userFactory->fromReadModel($userDetails, $this->authenticatedUserContext->getUserId());
 
-        return new JsonResponse(
-            $this->userDetailsPresenter->present($userResource)
-        );
+        return $this->responsePresenter->present($userResource);
     }
 }

@@ -13,9 +13,9 @@ class User
      */
     public function __construct(
         private readonly string $id,
+        private readonly ?string $email,
         private readonly string $username,
         private readonly string $displayName,
-        private readonly ?string $email,
         private readonly array $nativeLanguages,
         private readonly array $studyingLanguages,
     ) {
@@ -26,6 +26,11 @@ class User
         return $this->id;
     }
 
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
     public function getUsername(): string
     {
         return $this->username;
@@ -34,11 +39,6 @@ class User
     public function getDisplayName(): string
     {
         return $this->displayName;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
     }
 
     public function getNativeLanguages(): array
