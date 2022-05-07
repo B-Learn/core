@@ -6,10 +6,10 @@ namespace App\Users\Infrastructure\ReadModel\User;
 use App\Users\Domain\UserId;
 use App\Users\Domain\UserNotFoundException;
 use App\Users\ReadModel\User\UserDetails;
-use App\Users\ReadModel\User\UserRepository;
+use App\Users\ReadModel\User\UserReadModel;
 use Doctrine\DBAL\Connection;
 
-final class DbalUserRepository implements UserRepository
+final class DbalUserReadModel implements UserReadModel
 {
     public function __construct(private readonly Connection $connection)
     {

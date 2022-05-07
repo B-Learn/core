@@ -5,16 +5,16 @@ namespace App\Users\Application\GetUserDetails;
 
 use App\Common\Query\QueryHandler;
 use App\Users\ReadModel\User\UserDetails;
-use App\Users\ReadModel\User\UserRepository;
+use App\Users\ReadModel\User\UserReadModel;
 
 final class GetUserDetailsHandler implements QueryHandler
 {
-    public function __construct(private UserRepository $users)
+    public function __construct(private readonly UserReadModel $userReadModel)
     {
     }
 
     public function __invoke(GetUserDetailsQuery $query): UserDetails
     {
-        return $this->users->getDetailsById($query->getUserId());
+        return $this->userReadModel->getDetailsById($query->getUserId());
     }
 }
