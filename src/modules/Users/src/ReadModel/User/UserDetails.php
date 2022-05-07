@@ -5,13 +5,17 @@ namespace App\Users\ReadModel\User;
 
 class UserDetails
 {
+    /**
+     * @param string[] $nativeLanguagesIds
+     * @param string[] $studyingLanguagesIds
+     */
     public function __construct(
-        private string $id,
-        private ?string $email,
-        private string $username,
-        private string $display_name,
-        private array $nativeLanguagesIds,
-        private array $studyingLanguagesIds
+        private readonly string $id,
+        private readonly string $email,
+        private readonly string $username,
+        private readonly string $display_name,
+        private readonly array $nativeLanguagesIds,
+        private readonly array $studyingLanguagesIds
     ) {
     }
 

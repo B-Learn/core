@@ -8,9 +8,9 @@ use App\Common\Command\Command;
 final class UpdateCurrentUserDetailsCommand implements Command
 {
     public function __construct(
-        private string $userId,
-        private ?string $username,
-        private ?string $displayName
+        private readonly string $userId,
+        private readonly ?string $userName,
+        private readonly ?string $displayName
     ) {
     }
 
@@ -19,9 +19,9 @@ final class UpdateCurrentUserDetailsCommand implements Command
         return $this->userId;
     }
 
-    public function getUsername(): ?string
+    public function getUserName(): ?string
     {
-        return $this->username;
+        return $this->userName;
     }
 
     public function getDisplayName(): ?string

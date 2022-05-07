@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\InternalApi\Languages\Action;
 
 use App\Common\Query\QueryBus;
+use App\InternalApi\Languages\Resources\LanguageFactory;
 use App\SharedKernel\Language\Application\GetLanguagesList\GetLanguagesListQuery;
 use App\SharedKernel\Language\ReadModel\Language;
 use App\SharedKernel\Language\ReadModel\LanguageCollection;
@@ -14,7 +15,8 @@ final class LanguageList extends AbstractController
 {
     public function __construct(
         private readonly QueryBus $queryBus,
-        private readonly LanguagePresenter $languagePresenter
+        private readonly LanguagePresenter $languagePresenter,
+        private readonly LanguageFactory $languageFactory
     ) {
     }
 
@@ -30,7 +32,9 @@ final class LanguageList extends AbstractController
     {
         return [
             'data' => array_map(
-                fn (Language $language) => $this->languagePresenter->present($language),
+                fn (Language $language) => $this->languagePresenter->present(
+                    $this->languageFactory->fromReadModel($language)
+                ),
                 $list->getLanguages()
             )
         ];

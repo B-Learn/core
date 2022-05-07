@@ -5,5 +5,5 @@ namespace App\Users\ReadModel\User;
 
 interface UserRepository
 {
-    public function getDetailsById(string $userId, bool $isFullInfo): UserDetails;
+    public function getDetailsById(string $userId): UserDetails;
 }

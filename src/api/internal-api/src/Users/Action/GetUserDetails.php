@@ -4,7 +4,9 @@ declare(strict_types=1);
 namespace App\InternalApi\Users\Action;
 
 use App\Common\Query\QueryBus;
+use App\InternalApi\Common\Auth\AuthenticatedUserContext;
 use App\InternalApi\Common\Validation\Assertion;
+use App\InternalApi\Users\Resources\UserFactory;
 use App\Users\Application\GetUserDetails\GetUserDetailsQuery;
 use App\Users\ReadModel\User\UserDetails;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +18,9 @@ final class GetUserDetails extends AbstractController
 {
     public function __construct(
         private readonly QueryBus $queryBus,
-        private readonly UserDetailsPresenter $userDetailsPresenter
+        private readonly UserPresenter $userDetailsPresenter,
+        private readonly UserFactory $userFactory,
+        private readonly AuthenticatedUserContext $authenticatedUserContext
     ) {
     }
 
@@ -37,8 +41,10 @@ final class GetUserDetails extends AbstractController
         /** @var UserDetails $userDetails */
         $userDetails = $this->queryBus->handle(new GetUserDetailsQuery($userId));
 
+        $userResource = $this->userFactory->fromReadModel($userDetails, $this->authenticatedUserContext->getUserId());
+
         return new JsonResponse(
-            $this->userDetailsPresenter->present($userDetails)
+            $this->userDetailsPresenter->present($userResource)
         );
     }
 }

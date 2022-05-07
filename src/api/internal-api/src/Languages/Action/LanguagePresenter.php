@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace App\InternalApi\Languages\Action;
 
-use App\SharedKernel\Language\ReadModel\Language;
+
+use App\InternalApi\Languages\Resources\Language;
 
 class LanguagePresenter
 {

@@ -5,12 +5,12 @@ namespace App\SharedKernel\Language\Infrastructure\ReadModel;
 
 use App\SharedKernel\Language\ReadModel\Language;
 use App\SharedKernel\Language\ReadModel\LanguageCollection;
-use App\SharedKernel\Language\ReadModel\LanguageRepository;
+use App\SharedKernel\Language\ReadModel\LanguageReadModel;
 use Doctrine\DBAL\Connection;
 
-final class DbalLanguageRepository implements LanguageRepository
+final class DbalLanguageReadModel implements LanguageReadModel
 {
-    public function __construct(private Connection $connection)
+    public function __construct(private readonly Connection $connection)
     {
     }
 
@@ -23,7 +23,7 @@ final class DbalLanguageRepository implements LanguageRepository
             ->from('languages', 'l')
         ;
 
-        $rows = $builder->execute()->fetchAllAssociative();
+        $rows = $builder->executeQuery()->fetchAllAssociative();
 
         $result = [];
 
@@ -45,7 +45,7 @@ final class DbalLanguageRepository implements LanguageRepository
             ->setParameter('IDS', $ids, Connection::PARAM_STR_ARRAY)
         ;
 
-        $rows = $builder->execute()->fetchAllAssociative();
+        $rows = $builder->executeQuery()->fetchAllAssociative();
 
         $result = [];
 

@@ -11,16 +11,23 @@ use Doctrine\DBAL\Connection;
 
 final class DbalUserRepository implements UserRepository
 {
-    public function __construct(private Connection $connection)
+    public function __construct(private readonly Connection $connection)
     {
     }
 
-    public function getDetailsById(string $userId, bool $isFullInfo): UserDetails
+    public function getDetailsById(string $userId): UserDetails
     {
         $builder = $this->connection->createQueryBuilder();
 
         $builder
-            ->select($this->getSelectForDetails($isFullInfo))
+            ->select(
+                'u.id',
+                'u.username',
+                'u.display_name',
+                'u.email',
+                'GROUP_CONCAT(unl.language_id) as native_languages',
+                'GROUP_CONCAT(usl.language_id) as studying_languages'
+            )
             ->from('users', 'u')
             ->leftJoin('u', 'users_native_languages', 'unl', 'unl.user_id = u.id')
             ->leftJoin('u', 'users_studying_languages', 'usl', 'usl.user_id = u.id')
@@ -28,10 +35,9 @@ final class DbalUserRepository implements UserRepository
             ->setParameter('USER_ID', $userId)
         ;
 
-        $statement = $builder->execute();
-        $row = $statement->fetchAssociative();
+        $row = $builder->executeQuery()->fetchAssociative();
 
-        if ($row === false || $row['id'] === null) {
+        if ($row === false) {
             throw UserNotFoundException::byId(new UserId($userId));
         }
 
@@ -52,27 +58,5 @@ final class DbalUserRepository implements UserRepository
         }
 
         return explode(',', $ids);
-    }
-
-    private function getSelectForDetails(bool $isFullInfo): string
-    {
-        if (!$isFullInfo) {
-            return '
-                u.id,
-                u.username,
-                u.display_name,
-                GROUP_CONCAT(unl.language_id) as native_languages,
-                GROUP_CONCAT(usl.language_id) as studying_languages
-            ';
-        }
-
-        return '
-            u.id,
-            u.username,
-            u.display_name,
-            u.email,
-            GROUP_CONCAT(unl.language_id) as native_languages,
-            GROUP_CONCAT(usl.language_id) as studying_languages
-        ';
     }
 }
